@@ -2,10 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const path = require('path');
-const config = require('./config');
+require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || config.server.port || 3000;
+const PORT = process.env.PORT || 3000;
+
+// Получаем токены из переменных окружения
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
 
 // Middleware
 app.use(cors());
@@ -15,11 +19,16 @@ app.use(express.static(__dirname));
 
 // Функция отправки сообщения в Telegram
 async function sendTelegramMessage(message) {
+    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+        console.error('❌ Telegram credentials not configured');
+        return { success: false, error: 'Telegram not configured' };
+    }
+    
     try {
-        const url = `https://api.telegram.org/bot${config.telegram.botToken}/sendMessage`;
+        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
         
         const response = await axios.post(url, {
-            chat_id: config.telegram.chatId,
+            chat_id: TELEGRAM_CHAT_ID,
             text: message,
             parse_mode: 'HTML'
         });
@@ -111,7 +120,11 @@ app.get('/', (req, res) => {
 
 // Запуск сервера
 app.listen(PORT, () => {
-    console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
-    console.log(`📱 Telegram уведомления настроены для chat_id: ${config.telegram.chatId}`);
+    console.log(`🚀 Сервер запущен на порту ${PORT}`);
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+        console.log(`📱 Telegram уведомления настроены для chat_id: ${TELEGRAM_CHAT_ID}`);
+    } else {
+        console.log(`⚠️  Telegram не настроен. Установите TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID`);
+    }
 });
 
