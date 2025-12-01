@@ -1,7 +1,7 @@
 {
-  "name": "ads-portfolio",
+  "name": "retro-dev-portfolio",
   "version": "1.0.0",
-  "description": "Портфолио проектов с формами обратной связи в стиле ретро-газеты",
+  "description": "Developer portfolio with retro 90s newspaper design — AI solutions, Telegram bots, automation tools",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mihaelgubenko/ads-portfolio.git"
+    "url": "https://github.com/mihaelgubenko/ProjectProfiling.git"
   },
   "engines": {
     "node": ">=16.0.0",

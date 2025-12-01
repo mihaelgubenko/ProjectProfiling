@@ -1,6 +1,23 @@
+# Retro Dev Portfolio
+
+**Developer Portfolio with 90s Newspaper Aesthetic**
+
+A modern developer portfolio website styled as a retro 90s newspaper. Showcases projects in AI development, Telegram bots, automation tools, and psychological analysis systems.
+
+---
+
 # ЦИФРОВЫЕ РЕШЕНИЯ — Портфолио проектов
 
 Портфолио разработчика с ретро-дизайном в стиле газеты 90-х годов. Сайт демонстрирует проекты в области AI, Telegram-ботов, автоматизации и психологического анализа.
+
+## 🚀 Features
+
+- **Retro Design**: 90s newspaper aesthetic with monochrome/color palette
+- **Responsive Layout**: Works on all devices
+- **Interactive Forms**: Project and service ordering with Telegram notifications
+- **SEO Optimized**: Fully configured for search engines
+- **Modal Windows**: Project showcases and screenshots
+- **Modern Tech Stack**: HTML5, CSS3, Vanilla JavaScript, Node.js, Express
 
 ## 🚀 Особенности
 
@@ -27,8 +44,8 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/mihaelgubenko/ads-portfolio.git
-cd ads-portfolio
+git clone https://github.com/mihaelgubenko/ProjectProfiling.git
+cd ProjectProfiling
 ```
 
 2. Установите зависимости:
@@ -84,7 +101,7 @@ Railway автоматически определит Node.js проект и з
 ## 📁 Структура проекта
 
 ```
-ads-portfolio/
+retro-dev-portfolio/
 ├── index.html          # Главная страница
 ├── styles.css          # Стили сайта
 ├── script.js           # JavaScript для интерактивности
