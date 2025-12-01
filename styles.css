@@ -1,0 +1,1126 @@
+/* ============================================
+   Стиль старой газеты 1940-х (разноцветная версия)
+   ============================================ */
+
+/* Импорт ретро-шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Courier+Prime:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap');
+
+/* CSS переменные для цветовой схемы старой газеты */
+:root {
+    --paper-color: #f4e8d0;
+    --paper-yellow: #e8d4a8;
+    --ink-color: #1a1a1a;
+    --accent-red: #c41e3a;
+    --accent-blue: #1e3a5f;
+    --accent-green: #2d5016;
+    --accent-brown: #8b4513;
+    --border-color: #d4af37;
+    --highlight-color: #fff8dc;
+    --article-bg: #faf8f3;
+}
+
+/* Сброс и базовая настройка */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* 12pt */
+    background: var(--paper-color);
+    color: var(--ink-color);
+    line-height: 1.7;
+    /* Эффект старой газетной бумаги с текстурой */
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(232, 212, 168, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(30, 58, 95, 0.1) 0%, transparent 50%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0,0,0,0.03) 2px,
+            rgba(0,0,0,0.03) 4px
+        ),
+        linear-gradient(135deg, #f4e8d0 0%, #e8d4a8 100%);
+    padding: 0;
+    position: relative;
+}
+
+/* Эффект состаренной бумаги */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 100px,
+            rgba(196, 30, 58, 0.02) 100px,
+            rgba(196, 30, 58, 0.02) 101px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Шапка газеты в стиле старой газеты */
+.newspaper-header {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-red) 100%);
+    color: #fff;
+    padding: 1.5rem 1rem;
+    border-bottom: 4px solid var(--ink-color);
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.newspaper-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+    border: 3px double #fff;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    background: rgba(0,0,0,0.2);
+}
+
+.header-subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.date {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+    background: rgba(0,0,0,0.3);
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.tagline {
+    flex: 1;
+    text-align: center;
+}
+
+/* Главный контент */
+.newspaper-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Главная статья в стиле старой газеты */
+.featured-article {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+    border: 3px solid var(--ink-color);
+    padding: 2rem;
+    background: var(--article-bg);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+    position: relative;
+    background-image: 
+        linear-gradient(90deg, transparent 0%, rgba(196, 30, 58, 0.05) 50%, transparent 100%);
+}
+
+/* DOS секция отдельно с красной линией сверху (как на скриншоте) */
+.dos-section {
+    margin-top: 3rem;
+    border-top: 4px solid var(--accent-red);
+    padding-top: 2rem;
+    background: var(--article-bg);
+    border: 3px solid var(--ink-color);
+    padding: 2rem;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+}
+
+.main-story h2 {
+    font-family: Arial, sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 4px solid var(--ink-color);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-red);
+}
+
+.article-intro {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: #444;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+}
+
+.main-story h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    border-left: 4px solid var(--accent-blue);
+    padding-left: 1rem;
+}
+
+.main-story p {
+    margin-bottom: 1rem;
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
+.main-story ul,
+.main-story ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.main-story li {
+    margin-bottom: 0.5rem;
+}
+
+/* Связанная статья (DOS) */
+.related-story {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
+.related-story h2 {
+    font-family: Arial, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--accent-red);
+    padding-bottom: 0.5rem;
+}
+
+.article-highlights {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(196, 30, 58, 0.1) 100%);
+    padding: 1.5rem;
+    border: 2px solid var(--accent-red);
+    margin: 1rem 0;
+    border-left: 4px solid var(--accent-red);
+}
+
+.article-highlights p {
+    margin-bottom: 0.8rem;
+    text-indent: 0;
+}
+
+/* Кнопка "Подробнее" */
+.read-more-btn {
+    background: var(--accent-red);
+    color: #fff;
+    border: 2px solid var(--ink-color);
+    padding: 0.8rem 1.5rem;
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* 12pt */
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.read-more-btn:hover {
+    background: var(--ink-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Сетка проектов (2 в ряд) */
+.projects-grid {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.project-card {
+    background: var(--article-bg);
+    border: 2px solid var(--ink-color);
+    padding: 1.5rem;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    background-image: linear-gradient(135deg, rgba(196, 30, 58, 0.03) 0%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.project-card.clickable {
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    border-color: var(--accent-color);
+}
+
+.project-card h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 0.5rem;
+}
+
+.project-card p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* Психология Души как отдельная горизонтальная статья */
+.psychology-featured {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.psychology-article {
+    background: var(--article-bg);
+    border: 3px solid var(--ink-color);
+    padding: 2rem;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+    position: relative;
+    background-image: linear-gradient(90deg, rgba(196, 30, 58, 0.05) 0%, transparent 50%);
+}
+
+.psychology-article h2 {
+    font-family: Arial, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--accent-blue);
+    padding-bottom: 0.5rem;
+}
+
+.psychology-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.psychology-text {
+    flex: 1;
+}
+
+.psychology-text p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.psychology-article .read-more-btn {
+    flex-shrink: 0;
+    margin-top: 0;
+}
+
+/* Колонки статей с разделителем (подгонка под размер окна) - 2 колонки */
+.articles-columns {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border-top: 4px solid var(--accent-red);
+    padding-top: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    align-items: stretch;
+    grid-auto-rows: 1fr;
+}
+
+/* Одинаковая высота для всех колонок - под размер самой большой (AI-защита) */
+.article-column {
+    background: var(--article-bg);
+    border: 2px solid var(--ink-color);
+    padding: 1.5rem;
+    column-count: 1;
+    text-align: justify;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+    background-image: linear-gradient(180deg, rgba(30, 58, 95, 0.02) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+/* Процесс работы горизонтально */
+.process-section {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 4px solid var(--accent-red);
+    padding-top: 2rem;
+}
+
+.process-article {
+    background: var(--article-bg);
+    border: 3px solid var(--ink-color);
+    padding: 2rem;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+    width: 100%;
+}
+
+.process-article h2 {
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--accent-red);
+    padding-bottom: 0.5rem;
+}
+
+.process-article p {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.process-article ol {
+    margin-left: 2rem;
+}
+
+.process-article li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+/* Вспомогательные проекты горизонтально */
+.auxiliary-projects {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 4px solid var(--accent-red);
+    padding-top: 2rem;
+}
+
+.auxiliary-article {
+    background: var(--article-bg);
+    border: 3px solid var(--ink-color);
+    padding: 2rem;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+    width: 100%;
+}
+
+.auxiliary-article h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--accent-blue);
+    padding-bottom: 0.5rem;
+}
+
+.auxiliary-article p {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+
+.article-column h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+    border-bottom: 3px solid var(--accent-blue);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.article-column p {
+    margin-bottom: 1rem;
+    text-indent: 1.5em;
+}
+
+/* Боковая колонка */
+.sidebar {
+    grid-column: 2;
+}
+
+.sidebar-block {
+    background: var(--article-bg);
+    border: 2px solid var(--ink-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    background-image: linear-gradient(135deg, rgba(30, 58, 95, 0.05) 0%, transparent 100%);
+}
+
+.sidebar-block h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-red);
+    border-bottom: 3px solid var(--accent-red);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.sidebar-block ul,
+.sidebar-block ol {
+    margin-left: 1.5rem;
+}
+
+.sidebar-block li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-block blockquote {
+    font-style: italic;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: #555;
+}
+
+/* Футер с формами */
+.newspaper-footer {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-red) 100%);
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 4px solid var(--ink-color);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-forms-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-form-container {
+    background: rgba(255,255,255,0.95);
+    padding: 2rem;
+    border: 2px solid #fff;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+}
+
+.footer-form-container h3 {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--accent-red);
+    padding-bottom: 0.5rem;
+    text-align: left;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-form input,
+.order-form textarea {
+    padding: 0.8rem;
+    border: 2px solid var(--ink-color);
+    font-family: 'Times New Roman', serif;
+    font-size: 1rem;
+    background: #fff;
+    color: var(--ink-color);
+    transition: border-color 0.3s;
+}
+
+.order-form input:focus,
+.order-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-red);
+}
+
+.order-form textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: 'Times New Roman', serif;
+}
+
+.form-submit-btn {
+    background: var(--accent-red);
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1rem 2rem;
+    font-family: 'Times New Roman', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.form-submit-btn:hover {
+    background: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Нижняя часть футера: контакты и права */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(255,255,255,0.3);
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Контакты (слева) */
+.contacts-section {
+    flex: 1;
+    min-width: 250px;
+    background: rgba(147, 112, 219, 0.15); /* Мягкий фиолетовый фон */
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-left: 0;
+}
+
+.contacts-section h3 {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-left: 0;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.contacts-list p {
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: left;
+}
+
+.contacts-list a {
+    color: #fff;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.contacts-list a:hover {
+    color: var(--border-color);
+}
+
+/* Права и описание стиля (справа) */
+.copyright-section {
+    flex: 1;
+    min-width: 250px;
+    text-align: right;
+}
+
+.copyright-text {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.newspaper-style-note {
+    font-family: 'Times New Roman', serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    font-style: italic;
+    max-width: 400px;
+    margin-left: auto;
+}
+
+/* Контейнер для писем и объявлений (две отдельные колонки) */
+.testimonials-announcements-wrapper {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Письма заказчиков отдельно */
+.testimonials-section {
+    flex: 1;
+    padding: 2rem;
+    background: var(--article-bg);
+    border: 3px solid var(--ink-color);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.1);
+}
+
+.testimonials-section h2 {
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--accent-red);
+    padding-bottom: 0.5rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Стиль для писем заказчиков */
+.testimonial-letter {
+    background: var(--article-bg);
+    border: 2px solid var(--ink-color);
+    padding: 2rem;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* 12pt */
+    line-height: 1.8;
+    color: var(--ink-color);
+    text-align: left;
+    position: relative;
+}
+
+.testimonial-letter p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.testimonial-letter p:first-child {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-letter .letter-signature {
+    margin-top: 1.5rem;
+    text-align: right;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* Колонка объявлений (отдельная секция) */
+.announcements-section {
+    min-width: 280px;
+    max-width: 320px;
+    background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-blue) 100%);
+    border: 3px solid var(--ink-color);
+    padding: 1.5rem;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 2rem;
+}
+
+.announcements-section h3 {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 0.5rem;
+}
+
+.announcements-content {
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* 12pt */
+    line-height: 1.6;
+}
+
+.announcements-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+.announcements-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.announcements-details p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    overflow: auto;
+    animation: fadeIn 0.3s;
+}
+
+.modal.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: var(--article-bg);
+    margin: 2% auto;
+    padding: 2rem;
+    border: 4px solid var(--ink-color);
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    position: relative;
+    background-image: 
+        linear-gradient(90deg, transparent 0%, rgba(196, 30, 58, 0.03) 50%, transparent 100%),
+        linear-gradient(180deg, var(--article-bg) 0%, #faf8f3 100%);
+}
+
+.modal-content h2 {
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-red);
+    border-bottom: 3px solid var(--accent-red);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--ink-color);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: var(--accent-color);
+}
+
+.modal-body {
+    margin-top: 1rem;
+}
+
+.modal-body p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Галерея скриншотов */
+.screenshots-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.screenshots-gallery img {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--ink-color);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.screenshots-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
+    border-color: var(--accent-color);
+}
+
+/* Lightbox для увеличения скриншотов */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    overflow: auto;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s;
+    z-index: 2001;
+}
+
+.lightbox-close:hover {
+    color: var(--border-color);
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 3px solid #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .psychology-content {
+        flex-direction: column;
+    }
+    
+    .footer-forms-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+    }
+    
+    .copyright-section {
+        text-align: left;
+    }
+    
+    .newspaper-style-note {
+        margin-left: 0;
+    }
+    
+    .testimonials-announcements-wrapper {
+        flex-direction: column;
+    }
+    
+    .announcements-section {
+        max-width: 100%;
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .newspaper-main {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        grid-column: 1;
+    }
+    
+    .newspaper-title {
+        font-size: 2rem;
+    }
+    
+    .header-subtitle {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .psychology-content {
+        flex-direction: column;
+    }
+    
+    .articles-columns {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .footer-forms-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .copyright-section {
+        text-align: left;
+    }
+    
+    .newspaper-style-note {
+        margin-left: 0;
+        max-width: 100%;
+    }
+    
+    .testimonials-announcements-wrapper {
+        flex-direction: column;
+    }
+    
+    .announcements-section {
+        max-width: 100%;
+        position: relative;
+        top: 0;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-form-container {
+        padding: 1.5rem;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        padding: 1rem;
+    }
+    
+    .screenshots-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contacts-list {
+        align-items: flex-start;
+    }
+}
+
+/* Печатные стили */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .newspaper-header,
+    .newspaper-footer,
+    .read-more-btn,
+    .cta-btn,
+    .close {
+        display: none;
+    }
+    
+    .modal {
+        display: none !important;
+    }
+    
+    .newspaper-main {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        grid-column: 1;
+    }
+    
+    .project-card,
+    .article-column,
+    .sidebar-block {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+    }
+    
+    .screenshots-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
